@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bisa.id</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Header */
+        header {
+            background-color: #ffffff;
+            padding: 20px 50px;
+            position: fixed;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(45deg, #007bff, #00ff88);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 100px;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background-color: white;
+            color: #007bff;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            background-color: #f8f9fa;
+        }
+
+        .feature-item {
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            margin: 20px 0;
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 0 20px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                padding: 50px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Bisa.id</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Selamat datang di website kami!</h1>
+            <p>Ubah ide kamu menjadi kenyataan dengan realisasi lebih baik.</p>
+            <button class="cta-button">Ayo mulai!</button>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature-item">
+            <h3>Quotes 1</h3>
+            <p>"If you can dream it, you can do it."</p>
+        </div>
+        <div class="feature-item">
+            <h3>Quotes 2</h3>
+            <p>"The future belongs to those who believe in the beauty of their dreams."</p>
+        </div>
+        <div class="feature-item">
+            <h3>Quotes 3</h3>
+            <p>"Success is not final, failure is not fatal: It is the courage to continue that counts."</p>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll untuk navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animasi scroll untuk feature items
+        window.addEventListener('scroll', function() {
+            const features = document.querySelectorAll('.feature-item');
+            const windowHeight = window.innerHeight;
+
+            features.forEach(feature => {
+                const position = feature.getBoundingClientRect().top;
+                
+                if(position < windowHeight - 100) {
+                    feature.style.opacity = '1';
+                    feature.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
